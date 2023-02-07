@@ -21,7 +21,6 @@ swapon /dev/vda2
 
 # configuration
 nixos-generate-config --root /mnt
-cp ./configuration.nix /mnt/etc/nixos/configuration.nix
-cp ./user.nix /mnt/etc/nixos/user.nix
+cp /mnt/nixos/hardware-configuration.nix hardware-configuration.nix
 
 nixos-install --flake .#nixos

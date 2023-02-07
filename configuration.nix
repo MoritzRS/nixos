@@ -11,7 +11,7 @@
   };
 
   imports = [
-    ./hardware-configuration.nix
+    (import ./hardware-configuration.nix)
   ];
 
   # Bootloader

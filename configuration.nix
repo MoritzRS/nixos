@@ -13,7 +13,7 @@
   # Bootloader
   boot = {
     kernelParams = [
-      "quiet",
+      "quiet"
       "loglevel=3"
     ];
     loader = {

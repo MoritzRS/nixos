@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ inputs, config, pkgs, ...}:
 {
 
   system.stateVersion = "22.11";
@@ -30,6 +30,12 @@
         useOSProber = true;
         configurationLimit = 5;
       };
+    };
+    grub2-theme = {
+      enable = true;
+      theme = "stylish";
+      screen = "1080p"
+      footer = true;
     };
   };
   

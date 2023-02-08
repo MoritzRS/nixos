@@ -34,7 +34,7 @@
     grub2-theme = {
       enable = true;
       theme = "stylish";
-      screen = "1080p"
+      screen = "1080p";
       footer = true;
     };
   };

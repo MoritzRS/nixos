@@ -31,7 +31,7 @@
         configurationLimit = 5;
       };
     };
-    grub2-theme = {
+    grub2-themes = {
       enable = true;
       theme = "stylish";
       screen = "1080p";

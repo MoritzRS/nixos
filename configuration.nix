@@ -30,12 +30,12 @@
         useOSProber = true;
         configurationLimit = 5;
       };
-    };
-    grub2-themes = {
-      enable = true;
-      theme = "stylish";
-      screen = "1080p";
-      footer = true;
+      grub2-theme = {
+        enable = true;
+        theme = "stylish";
+        screen = "1080p";
+        footer = true;
+      };
     };
   };
   

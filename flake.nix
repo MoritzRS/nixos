@@ -8,16 +8,15 @@
     };
   };
 
-  outputs = inputs@{nixpkgs, grub2-themes, ...}: {
+  outputs = inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
         }
-        grub2-themes.nixosModules.default
+        inputs.grub2-themes.nixosModules.default
       ];
     };
   };

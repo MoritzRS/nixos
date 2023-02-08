@@ -8,8 +8,8 @@
     };
   };
 
-  outputs = inputs: {
-    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+  outputs = inputs@{nixpkgs, grub2-themes, ...}: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [

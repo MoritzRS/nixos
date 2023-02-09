@@ -20,7 +20,7 @@
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
-          home-manager.users.jdoe = { 
+          home-manager.users.mrs = { 
             imports = [ ./user/home.nix ];
           }; 
         }

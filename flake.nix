@@ -21,7 +21,7 @@
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
           home-manager.users.jdoe = { 
-            imports = [ ./home/user.nix ];
+            imports = [ ./user/home.nix ];
           }; 
         }
       ];

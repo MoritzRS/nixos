@@ -72,9 +72,11 @@
       xkbVariant = "";
       libinput = {
         enable = true;
-        naturalScrolling = false;
-        middleEmulation = true;
-        tapping = true;
+        touchpad = {
+          naturalScrolling = false;
+          middleEmulation = true;
+          tapping = true;
+        };
       };
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;

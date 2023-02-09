@@ -136,7 +136,7 @@
     };
   };
 
-  home-manager.users.my_username = {
+  inputs.home-manager.users.my_username = {
     imports = [
       ../user/home.nix
     ];

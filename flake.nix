@@ -11,11 +11,12 @@
   };
 
   outputs = inputs: {
-    nixosConfiguration.nixos = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./system/configuration.nix
+        inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
@@ -23,14 +24,13 @@
             imports = [ ./home/user.nix ];
           }; 
         }
-        inputs.grub2-themes.nixosModules.default
       ];
     };
 
-    # homeConfigurations."mrs@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-    #   pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    #   extraSpecialArgs = { inherit inputs; };
-    #   modules = [ ./user/home..nix ];
-    # };
+    homeConfigurations."mrs@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = { inherit inputs; };
+      modules = [ ./user/home..nix ];
+    };
   };
 }

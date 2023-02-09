@@ -18,15 +18,19 @@
         ./system/configuration.nix
         inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
+          home-manager.useGlobalPkgs = true; 
+          home-manager.useUserPackages = true; 
+          home-manager.users.jdoe = { 
+            imports = [ ./home/user.nix ];
+          }; 
         }
       ];
     };
 
-    homeConfigurations."mrs@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { inherit inputs; };
-      modules = [ ./user/home..nix ];
-    };
+    # homeConfigurations."mrs@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
+    #   pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    #   extraSpecialArgs = { inherit inputs; };
+    #   modules = [ ./user/home..nix ];
+    # };
   };
 }

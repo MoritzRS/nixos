@@ -51,6 +51,11 @@
       monospace-font-name = "JetBrainsMono Nerd Font Mono 10";
       document-font-name = "JetBrainsMono Nerd Font 11";
     };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      "sleep-inactive-ac-type" = "nothing";
+      "sleep-inactive-battery-type" = "nothing";
+    }
   };
 
   programs = {

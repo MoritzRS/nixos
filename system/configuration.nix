@@ -119,11 +119,6 @@
     dconf.enable = true;
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
-
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -139,7 +134,7 @@
       isNormalUser = true;
       initialPassword = "1234";
       description = "MoritzRS";
-      extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
+      extraGroups = [ "networkmanager" "wheel" ];
     };
   };
 }

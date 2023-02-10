@@ -56,6 +56,10 @@
       "sleep-inactive-ac-type" = "nothing";
       "sleep-inactive-battery-type" = "nothing";
     };
+
+    "org/gnome/desktop/session" = {
+      idle-delay = "uint32 0";
+    };
   };
 
   programs = {

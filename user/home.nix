@@ -14,6 +14,7 @@
       epiphany
       obsidian
       apostrophe
+      godot
     ];
   };
 

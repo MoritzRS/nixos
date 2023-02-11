@@ -137,4 +137,6 @@
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
+
+  security.pam.services.mrs.enableGnomeKeyring = true;
 }

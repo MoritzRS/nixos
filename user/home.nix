@@ -8,6 +8,8 @@
     packages = with pkgs; [
       php
       nodejs
+      sqlitebrowser
+      insomnia
       neovim
       google-chrome
       firefox

@@ -99,7 +99,7 @@
   # Podman
   virtualisation.podman.enable = true;
   virtualisation.podman.dockerCompat = true;
-  virtualisation.podman.defaultNetwork.settings.dns_enabled = true
+  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
  
   # User
   users.users.mrs.home = "/home/mrs";

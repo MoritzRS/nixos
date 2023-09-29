@@ -1,13 +1,13 @@
 {
-  description = "My System Configuration";
+  description = "NixOS System Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs";
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
   };
 
   outputs = inputs: {
@@ -15,23 +15,16 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./system/configuration.nix
+        ./config/system.nix
         inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
           home-manager.users.mrs = { 
-            imports = [ ./user/home.nix ];
+            imports = [ ./config/home.nix ];
           }; 
         }
       ];
     };
-
-    # Unfinished
-    # homeConfigurations."mrs@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-    #   pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-    #   extraSpecialArgs = { inherit inputs; };
-    #   modules = [ ./user/home.nix ];
-    # };
   };
 }

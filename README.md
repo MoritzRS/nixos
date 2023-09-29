@@ -1,6 +1,22 @@
 # NIXOS SYSTEM CONFIG
 
-## Setup
+## Automatically
+
+For some devices there are already predefined install scripts
+
+#### Laptop
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/MoritzRS/nixos/master/scripts/laptop.sh)
+```
+
+#### Virtual
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/MoritzRS/nixos/master/scripts/virtual.sh)
+```
+
+## Manually
 
 First you need to partition your device
 
@@ -12,7 +28,7 @@ parted /dev/sda -- mkpart primary linux-swap -20GB 100%
 parted /dev/sda -- set 1 esp on
 
 mkfs.fat -F 32 -n boot /dev/sda1
-mkfs.ext4 -L nixos /dev/sda1
+mkfs.ext4 -L nixos /dev/sda2
 mkswap -L swap /dev/sda3
 
 mount /dev/disk/by-label/nixos /mnt
@@ -38,10 +54,4 @@ To reconfigure an existing system:
 
 ```bash
 nixos-rebuild switch --flake /mnt/etc/nixos#nixos
-```
-
-If you just want to use the home setup, you can do so
-
-```
-home-manager switch --flake /mnt/etc/nixos#mrs@nixos
 ```

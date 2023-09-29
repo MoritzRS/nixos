@@ -2,10 +2,10 @@
   description = "NixOS System Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -15,13 +15,13 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
+        ./config/configuration.nix
         inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
           home-manager.users.mrs = { 
-            imports = [ ./home.nix ];
+            imports = [ ./config/home.nix ];
           }; 
         }
       ];

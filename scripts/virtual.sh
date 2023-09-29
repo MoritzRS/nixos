@@ -1,14 +1,14 @@
 # Partitioning
-parted /dev/sda -- mklabel gpt
-parted /dev/sda -- mkpart ESP fat32 1MB 512MB
-parted /dev/sda -- mkpart primary 512MB -20GB
-parted /dev/sda -- mkpart primary linux-swap -20GB 100%
-parted /dev/sda -- set 1 esp on
+parted /dev/vda -- mklabel gpt
+parted /dev/vda -- mkpart ESP fat32 1MB 512MB
+parted /dev/vda -- mkpart primary 512MB -20GB
+parted /dev/vda -- mkpart primary linux-swap -20GB 100%
+parted /dev/vda -- set 1 esp on
 
 # Formatting
-mkfs.fat -F 32 -n boot /dev/sda1
-mkfs.ext4 -L nixos /dev/sda2
-mkswap -L swap /dev/sda3
+mkfs.fat -F 32 -n boot /dev/vda1
+mkfs.ext4 -L nixos /dev/vda2
+mkswap -L swap /dev/vda3
 
 # Mounting
 mount /dev/disk/by-label/nixos /mnt

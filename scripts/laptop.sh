@@ -17,7 +17,7 @@ mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
 
 # Cloning
-git clone https://github.com/moritzrs/nixos /mnt/etc/nixos
+git clone --depth=1 https://github.com/moritzrs/nixos /mnt/etc/nixos
 
 # Generating
 nixos-generate-config --root /mnt

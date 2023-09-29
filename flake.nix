@@ -15,13 +15,13 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./config/system.nix
+        ./configuration.nix
         inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 
           home-manager.useUserPackages = true; 
           home-manager.users.mrs = { 
-            imports = [ ./config/home.nix ];
+            imports = [ ./home.nix ];
           }; 
         }
       ];

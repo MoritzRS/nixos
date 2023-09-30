@@ -11,11 +11,11 @@
   nix.settings.experimental-features = "nix-command flakes";
   nix.settings.auto-optimise-store = true;
   nix.gc.automatic = true;
-  nix.gc.date = "weekly";
+  nix.gc.dates = "weekly";
   nix.gc.options = "--delete-older-than 30d";
 
   # Bootloader
-  boot.kernelParams = ["quite" "loglevel=3"];
+  boot.kernelParams = ["quiet" "loglevel=3"];
   boot.loader.timeout = 3;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -58,7 +58,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
+  services.xserver.excludePackages = [ pkgs.xterm ];
   environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+  programs.dconf.enable = true;
 
   # Printing
   services.printing.enable = true;
@@ -70,6 +72,9 @@
   services.pipewire.alsa.enable = true;
   services.pipewire.alsa.support32Bit = true;
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+
   # Shell
   programs.zsh.enable = true;
   environment.shells = [ pkgs.zsh ];
@@ -77,23 +82,23 @@
 
   # Fonts
   fonts.fonts = [
-	pkgs.noto-fonts
-	pkgs.noto-fonts-cjk
-	pkgs.noto-fonts-emoji
-	(pkgs.nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
+	  pkgs.noto-fonts
+	  pkgs.noto-fonts-cjk
+	  pkgs.noto-fonts-emoji
+	  (pkgs.nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" ]; })
   ];
 
   # System Packages
   environment.systemPackages = [
-	# Basic Tools
-	pkgs.vim
-	pkgs.wget
-	pkgs.git
-	pkgs.gnome.gnome-tweaks
+	  # Basic Tools
+	  pkgs.vim
+	  pkgs.wget
+	  pkgs.git
+	  pkgs.gnome.gnome-tweaks
 
-	# Application Runners
-	pkgs.steam-run
-	pkgs.appimage-run
+	  # Application Runners
+	  pkgs.steam-run
+	  pkgs.appimage-run
   ];
 
   # Podman

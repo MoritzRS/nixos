@@ -15,7 +15,7 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./config/configuration.nix
+        ./config/system.nix
         inputs.grub2-themes.nixosModules.default
         inputs.home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true; 

@@ -2,7 +2,7 @@
   
   # Standard Setup
   nixpkgs.config.allowUnfree = true;
-  home.stateVersion = "23.05";
+  home.stateVersion = "22.11";
   home.username = "mrs";
   home.homeDirectory = "/home/mrs";
   programs.home-manager.enable = true;
